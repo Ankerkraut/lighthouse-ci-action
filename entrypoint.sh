@@ -84,11 +84,9 @@ api_request() {
 }
 
 cleanup() {
-  if [[ -n "${theme+x}" ]]; then
-    step "Disposing development theme"
-    shopify theme delete -d -f
-    shopify logout
-  fi
+  step "Disposing development theme"
+  shopify theme delete -d -f
+  shopify logout
 
   if [[ -f "lighthouserc.yml" ]]; then
     rm "lighthouserc.yml"
